@@ -1,0 +1,99 @@
+Exercise: 1
+Working with systemd and targets
+
+1 . - Install the httpd package.
+
+  -]$ sudo yum install httpd -y
+
+2 . - View all active targets on the system.
+
+  -]$ systemctl list-units --type=target
+
+3 . - View all targets installed on the disk.
+
+  -]$ systemctl list-unit-files
+
+4 . - Display the current default target.
+
+  -]$ systemctl get-default
+
+5. - Change the default target to the multi-user target if the multi-user target is available.
+
+  -]# systemctl set-default multi-user.target
+
+6 . - View all available systemd configuration units.
+
+  -]$ 
+
+ 7 . - Find the status of the sshd service.
+
+  -]$ systemctl status httpd
+
+8 . - List all active service unit configuration files.
+
+  -]$ 
+
+9 . - Determine if the httpd service is active.
+
+  -]$ systemctl 
+
+10 . - Determine if the httpd service is enabled, and, if it is not, enable it.
+
+
+
+11 . - View enabled and disabled settings for all units of the type "service".
+
+
+
+12 . - List all service unit configuration files, whether they are active or not.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
