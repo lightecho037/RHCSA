@@ -11,7 +11,7 @@ Working with systemd and targets
 
 3 . - View all targets installed on the disk.
 
-  -]$ systemctl list-unit-files
+  -]$ systemctl list-units --type target --all
 
 4 . - Display the current default target.
 
@@ -23,30 +23,33 @@ Working with systemd and targets
 
 6 . - View all available systemd configuration units.
 
-  -]$ 
+  -]$ systemctl -t help
 
  7 . - Find the status of the sshd service.
 
-  -]$ systemctl status httpd
+  -]$ systemctl status httpd.service
 
 8 . - List all active service unit configuration files.
 
-  -]$ 
+  -]$ systemctl --type=service
 
 9 . - Determine if the httpd service is active.
 
-  -]$ systemctl 
+  -]$ systemctl is-active httpd 
 
 10 . - Determine if the httpd service is enabled, and, if it is not, enable it.
 
-
+  -]$ systemctl is-enabled httpd
 
 11 . - View enabled and disabled settings for all units of the type "service".
 
-
+  -]$ systectl list-unit-files --type=service --all
 
 12 . - List all service unit configuration files, whether they are active or not.
-
+ 
+  -]$ systemctl list-units --all
+  
+  -]$ systemctl list-units --type=service --all
 
 
 
