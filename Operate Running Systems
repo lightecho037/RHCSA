@@ -113,9 +113,57 @@ TEST 2
   -]$ pgrep -u user
   -]$ pkill -u user ssh
 
+=========================================================
+NICE, RECINE AND PS
 
+1 . - Ensure that you have the httpd package installed on the system.
 
+  -]$ yum info httpd 
 
+2 . - Ensure the httpd service is not running.
+
+  -]$ systemctp stutus httpd 
+
+3 . - Start the httpd service with the most favorable nice possible.
+
+  -]$ nice -n -20 httpd 
+
+4 . - View the current nice of the httpd service using the ps command and grep command together.
+
+  -]$ ps axo pid,comm,nice | grep  httpd
+
+5 . - Renice all httpd processes and set the nice level to 0.
+  
+  -]$ renice -n 0 $(pgrep httpd)
+
+=========================================================
+MONITORING AND CALCULATING CPU LOAD AVERAGES
+
+1 . - View the system uptime and load average.
+
+  -]$ uptime
+
+2 . - View the system uptime and load average in such a way that it also shows what users are logged in
+to the system and what the user is doing.
+
+  -]$ w
+
+3 . - Using the proc file system and wc, display the number of processors your system has. 
+This is important to calculate the load average of the system.
+
+  -]$ lscpu
+  || or ||
+  -]$ cat /proc/cpuinfo 
+
+4 . - Calculate the 1, 5, and 15 minute CPU load averages for the system
+
+  -]$ uptime
+ 09:42:20 up 16:21,  3 users,  load average: 1.04, 0.72, 0.35
+
+Per CPU load average calculation formula: load average / # of cpu
+Per CPU load average calculation 1 Minute load average: 1.04 / 2 = 52%
+Per CPU load average calculation 5 Minute load average: .72 / 2 = 36%
+Per CPU load average calculation 15 Minute load average: .35 / 2 = 17.5%
 
 
 
